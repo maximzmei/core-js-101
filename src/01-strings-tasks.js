@@ -65,8 +65,12 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, John Doe!' => 'John Doe'
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
-function extractNameFromTemplate(/* value */) {
-  throw new Error('Not implemented');
+function extractNameFromTemplate(value) {
+  const array = value.replace(',', '').split(' ');
+  const firstName = array[1];
+  const lastName = array[2];
+  const correctLastName = lastName.substring(0, lastName.length - 1);
+  return `${firstName} ${correctLastName}`;
 }
 
 
@@ -110,8 +114,12 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   'A', 5  => 'AAAAA'
  *   'cat', 3 => 'catcatcat'
  */
-function repeatString(/* value, count */) {
-  throw new Error('Not implemented');
+function repeatString(value, count) {
+  let result = '';
+  for (let i = 0; i < count; i += 1) {
+    result += value;
+  }
+  return result;
 }
 
 /**
