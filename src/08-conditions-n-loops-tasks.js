@@ -290,8 +290,11 @@ function isCreditCardNumber(/* ccn */) {
  *   10000 ( 1+0+0+0+0 = 1 ) => 1
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
-function getDigitalRoot(/* num */) {
-  throw new Error('Not implemented');
+function getDigitalRoot(num) {
+  if (num > 9) {
+    return getDigitalRoot(num.toString().split('').map(Number).reduce((acc, el) => acc + el));
+  }
+  return num;
 }
 
 
@@ -308,7 +311,7 @@ function getDigitalRoot(/* num */) {
  *   '' => true
  *   '[]'  => true
  *   '{}'  => true
- *   '()   => true
+ *   '()'   => true
  *   '[[]' => false
  *   ']['  => false
  *   '[[][][[]]]' => true
@@ -317,6 +320,20 @@ function getDigitalRoot(/* num */) {
  *   '{[(<{[]}>)]}' = true
  */
 function isBracketsBalanced(/* str */) {
+  // if (str === '') return true;
+  // const strArray = str.split('');
+  // const startBrackets = ['[', '(', '{', '<'];
+  // const endBrackets = [']', ')', '}', '>'];
+  // const stack = [];
+  // // strArray.forEach((strElement) => {
+  // //   const findedIndexOfElementInSB = startBrackets
+  // //     .indexOf(startBrackets
+  // //       .find((element) => element === strElement));
+  // //   const findedIndexOfElementInEB = endBrackets
+  // //     .indexOf(endBrackets
+  // //       .find((element) => element === strElement));
+  // // });
+  // return false;
   throw new Error('Not implemented');
 }
 
@@ -341,8 +358,8 @@ function isBracketsBalanced(/* str */) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(num, n) {
+  return num.toString(n);
 }
 
 
@@ -416,8 +433,32 @@ function getMatrixProduct(/* m1, m2 */) {
  *    [    ,   ,    ]]
  *
  */
-function evaluateTicTacToePosition(/* position */) {
-  throw new Error('Not implemented');
+function evaluateTicTacToePosition(position) {
+  const result = position.flat();
+  if (result.every((el) => el === undefined)) {
+    return undefined;
+  } if (result[0] === undefined && result[1] === result[0] && result[1] === result[2]) {
+    return 0;
+  } if (result[0] === result[1] && result[1] === result[2]) {
+    return result[0];
+  } if (result[3] === result[4] && result[4] === result[5]) {
+    return result[3];
+  } if (result[6] === result[7] && result[7] === result[8]) {
+    return result[6];
+  } if (result[0] === result[3] && result[3] === result[6]) {
+    return result[0];
+  } if (result[1] === result[4] && result[4] === result[7]) {
+    return result[1];
+  } if (result[2] === result[5] && result[5] === result[8]) {
+    return result[2];
+  } if (result[0] === result[4] && result[4] === result[8]) {
+    return result[0];
+  } if (result[2] === result[4] && result[4] === result[6]) {
+    return result[2];
+  } if (result[2] === result[3] && result[3] === result[4]) {
+    return result[2];
+  }
+  return undefined;
 }
 
 
