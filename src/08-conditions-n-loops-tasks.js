@@ -320,20 +320,6 @@ function getDigitalRoot(num) {
  *   '{[(<{[]}>)]}' = true
  */
 function isBracketsBalanced(/* str */) {
-  // if (str === '') return true;
-  // const strArray = str.split('');
-  // const startBrackets = ['[', '(', '{', '<'];
-  // const endBrackets = [']', ')', '}', '>'];
-  // const stack = [];
-  // // strArray.forEach((strElement) => {
-  // //   const findedIndexOfElementInSB = startBrackets
-  // //     .indexOf(startBrackets
-  // //       .find((element) => element === strElement));
-  // //   const findedIndexOfElementInEB = endBrackets
-  // //     .indexOf(endBrackets
-  // //       .find((element) => element === strElement));
-  // // });
-  // return false;
   throw new Error('Not implemented');
 }
 
