@@ -70,8 +70,7 @@ function getPolynom(...args) {
   const five = reversedArgs[0] ? reversedArgs[0] : 0;
   const three = reversedArgs[1] ? reversedArgs[1] : 0;
   const two = reversedArgs[2] ? reversedArgs[2] : 0;
-  console.log(args, two, three, five);
-  return function (x) {
+  return function z(x) {
     return two * x ** 2 + three * x + five;
   };
 }
