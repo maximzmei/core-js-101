@@ -576,8 +576,11 @@ function getElementByIndexes(arr, indexes) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8 ]   =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  if (arr.length === 3) return arr.reverse();
+  const half = Math.round(arr.length / 2);
+  const halfArray = arr.splice(0, (arr.length % 2) === 0 ? half : half - 1);
+  return (arr.length % 2 === 0) ? [...arr, ...halfArray] : [arr, arr.shift(), halfArray].flat();
 }
 
 
