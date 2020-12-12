@@ -196,10 +196,10 @@ function partialUsingArguments(/* fn, ...args1 */) {
  *   getId10() => 11
  */
 function getIdGeneratorFunction(startFrom) {
-  let id = startFrom;
+  let count = startFrom;
   return function foo() {
   // eslint-disable-next-line no-return-assign
-    return (id += 1) - 1;
+    return (count += 1) - 1;
   };
 }
 
