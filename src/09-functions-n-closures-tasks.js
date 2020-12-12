@@ -173,8 +173,8 @@ function logger(/* func, logFunc */) {
  *   partialUsingArguments(fn, 'a','b','c')('d') => 'abcd'
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
-function partialUsingArguments(/* fn, ...args1 */) {
-  throw new Error('Not implemented');
+function partialUsingArguments(fn, ...args1) {
+  return (...args) => fn(...args1, ...args);
 }
 
 
@@ -198,7 +198,7 @@ function partialUsingArguments(/* fn, ...args1 */) {
 function getIdGeneratorFunction(startFrom) {
   let count = startFrom;
   return function foo() {
-  // eslint-disable-next-line no-return-assign
+    // eslint-disable-next-line no-return-assign
     return (count += 1) - 1;
   };
 }
